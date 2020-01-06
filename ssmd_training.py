@@ -16,7 +16,7 @@ num_bboxes = 1330
 num_classes = 80
 num_channel = 5 + num_classes
 
-epoch_size = 160
+epoch_size = 120
 minibatch_size = 64
 num_samples = 82801
 
