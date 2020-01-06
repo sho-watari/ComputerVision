@@ -325,3 +325,4 @@ if __name__ == "__main__":
     df = DataFrame(plot_data)
     df.to_csv("./ssmd.csv", index=False)
     print("Saved logging.")
+    
