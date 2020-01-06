@@ -99,3 +99,4 @@ if __name__ == "__main__":
     # Dimension Clustering
     #
     dimension_clustering(anchor_boxes, num_anchors)
+    
