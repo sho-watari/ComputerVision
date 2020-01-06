@@ -101,7 +101,7 @@ class SingleShotMultiDetector:
                     predict_bboxes_set.add(row)
                     target_bboxes_set.add(col)
             #
-            # IoU is larger than 0.5 but no assignment
+            # IoU is larger than 0.5
             #
             for row, col in zip(row_iou, col_iou):
                 if row in predict_bboxes_set:
