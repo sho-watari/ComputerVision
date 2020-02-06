@@ -34,8 +34,8 @@ num_classes = 80
 num_anchors = 5
 
 
-def dimension_clustering(anchor_boxes, num_anchors):
-    centroid, label, _ = k_means(anchor_boxes, num_anchors)
+def dimension_clustering(bounding_boxes, num_anchors):
+    centroid, label, _ = k_means(bounding_boxes, num_anchors)
 
     np.save("anchor_boxes.npy", centroid)
     print("\nSaved anchor_boxes.npy")
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     #
     # mapfile and bounding-box file
     #
-    anchor_boxes = np.zeros((len(annotations), 2), dtype="float32")
+    bounding_boxes = np.zeros((len(annotations), 2), dtype="float32")
 
     num_samples = 0
     num_bboxes = 0
@@ -98,5 +98,5 @@ if __name__ == "__main__":
     #
     # Dimension Clustering
     #
-    dimension_clustering(anchor_boxes, num_anchors)
+    dimension_clustering(bounding_boxes, num_anchors)
     
