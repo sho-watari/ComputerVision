@@ -23,7 +23,6 @@ num_samples = 82801
 anchor_boxes = np.load("./anchor_boxes.npy")
 sample_size = 8
 step_size = num_samples // sample_size * 10
-weight_decay = 0.0005
 
 
 class SingleShotMultiDetector:
@@ -198,7 +197,7 @@ def intersection_over_union(outputs, targets):  # [x-center, y-center, width, he
     return intersection / union
 
 
-def ssmd416(h, layers={}, filename="../coco21.h5"):
+def ssmd416(h, layers={}, filename="../COCO/coco21.h5"):
     with h5py.File(filename, "r") as f:
         for l in range(20):
             h = C.convolution(f["params/conv%d/weights" % (l + 1)][()], h, strides=1, auto_padding=[False, True, True])
@@ -272,7 +271,7 @@ if __name__ == "__main__":
     # cyclical learning rate
     #
     learner = C.adam(model.parameters, lr=1e-3, momentum=0.9, gradient_clipping_threshold_per_sample=sample_size,
-                     gradient_clipping_with_truncation=True, l2_regularization_weight=weight_decay)
+                     gradient_clipping_with_truncation=True)
     clr = CyclicalLearningRate(learner, base_lrs=1e-5, max_lrs=1e-3, minibatch_size=sample_size, step_size=step_size)
     progress_printer = C.logging.ProgressPrinter(tag="Training")
 
