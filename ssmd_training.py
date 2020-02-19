@@ -23,7 +23,6 @@ num_samples = 82801
 anchor_boxes = np.load("./anchor_boxes.npy")
 sample_size = 8
 step_size = num_samples // sample_size * 10
-weight_decay = 0.0005
 
 
 class SingleShotMultiDetector:
@@ -271,8 +270,8 @@ if __name__ == "__main__":
     #
     # cyclical learning rate
     #
-    learner = C.adam(model.parameters, lr=1e-3, momentum=0.9, l2_regularization_weight=weight_decay,
-                     gradient_clipping_threshold_per_sample=sample_size, gradient_clipping_with_truncation=True)
+    learner = C.adam(model.parameters, lr=1e-3, momentum=0.9, gradient_clipping_with_truncation=True,
+                     gradient_clipping_threshold_per_sample=sample_size)
     clr = CyclicalLearningRate(learner, base_lrs=1e-5, max_lrs=1e-3, minibatch_size=sample_size, step_size=step_size)
     progress_printer = C.logging.ProgressPrinter(tag="Training")
 
