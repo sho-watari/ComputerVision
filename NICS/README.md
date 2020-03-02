@@ -2,11 +2,11 @@
 
 Computer Vision : Image Caption - Neural Image Caption System
 
-## Neural Image Caption System
+## Recurrent Neural Network
 
 ![nics](nics.png "NICS")
 
-## Better and Falied
+## Result
 
 ### Better
 
