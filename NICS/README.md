@@ -4,14 +4,14 @@ Computer Vision : Image Caption - Neural Image Caption System
 
 ## Recurrent Neural Network
 
-![nics](nics.png "NICS")
+<img src="nics.png" align="center">
 
 ## Result
 
 ### Better
 
-![better](nics300x300_better.png "better")
+<img src="nics300x300_better.png" align="center">
 
 ### Failed
 
-![failed](nics300x300_failed.png "failed")
+<img src="nics300x300_failed.png" align="center")
