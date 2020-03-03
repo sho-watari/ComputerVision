@@ -14,4 +14,4 @@ Computer Vision : Image Caption - Neural Image Caption System
 
 ### Failed
 
-<img src="nics300x300_failed.png" align="center")
+<img src="nics300x300_failed.png" align="center">
