@@ -6,7 +6,7 @@ Computer Vision : Image Caption - Neural Image Caption System
 
 <img src="nics.png" align="center">
 
-## Result
+## Results
 
 ### Better
 
