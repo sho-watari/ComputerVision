@@ -2,6 +2,6 @@
 
 Computer Vision : Object Detection - Single Shot Multi Detector
 
-## Result
+## Results
 
-![ssmd](ssmd.gif "ssmd")
+<img src="ssmd.gif" align="center">
