@@ -12,10 +12,10 @@ Image Classification - Fashion-MNIST
 
 Image Caption - Nueral Image Caption System
 
-![nics_better](./NICS/nics300x300_better.png, "nics_better")
+<img src="NICS/nics300x300_better.png" align="center")
 
 ## SSMD
 
 Object Detection - Single Shot Multi Detector
 
-![ssmd_gif](./SSMD/ssmd.gif, "ssmd_gif")
+<img src="SSMD/ssmd.gif" align="center")
