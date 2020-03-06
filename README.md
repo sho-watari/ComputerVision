@@ -4,7 +4,7 @@
 
 Image Classification - Common Objects in Context
 
-COCO21
+Convolution Neural Network - COCO21
 
 | Layer                | Filters | Size/Stride |    Input    |   Output   |
 |:--------------------:|:-------:|:-----------:|:-----------:|:----------:|
