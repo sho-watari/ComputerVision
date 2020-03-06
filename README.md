@@ -55,4 +55,6 @@ Image Caption - Nueral Image Caption System
 
 Object Detection - Single Shot Multi Detector
 
-<img src="SSMD/ssmd.gif" align="center">
+<p align="center">
+  <img src="SSMD/ssmd.gif">
+</p>
