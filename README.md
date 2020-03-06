@@ -49,7 +49,7 @@ Test Accuracy 93.70%
 
 Image Caption - Nueral Image Caption System
 
-<img src="NICS/nics300x300_better.png" align="center">
+<img src="NICS/nics300x300_better.png">
 
 ## SSMD
 
