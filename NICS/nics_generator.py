@@ -19,7 +19,9 @@ num_hidden = 512
 plt.rcParams["font.family"] = "Yu Gothic"
 plt.rcParams["font.size"] = 15
 
-M = 35
+BOS = "<BOS>"
+EOS = "<EOS>"
+MAX = 35
 
 with open("id2word.pkl", "rb") as f:
     id2word = pickle.load(f)
@@ -56,11 +58,11 @@ if __name__ == "__main__":
     feature = np.reshape(CNN.eval({input: np.ascontiguousarray(image, dtype="float32")}), (1, 1, num_feature))
     word = np.identity(num_word, dtype="float32")[1].reshape(1, 1, num_word)
 
-    for _ in range(M):
+    for _ in range(MAX):
         prob = model.eval({model.arguments[0]: feature, model.arguments[1]: word})[0]
         pred = np.identity(num_word, dtype="float32")[prob.argmax(axis=1)[-1]].reshape(1, 1, num_word)
         word = np.concatenate((word, pred), axis=1)
-        if id2word[prob.argmax(axis=1)[-1]] == "<EOS>":
+        if id2word[prob.argmax(axis=1)[-1]] == EOS:
             break
 
     caption = ""
