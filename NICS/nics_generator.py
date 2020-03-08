@@ -42,8 +42,6 @@ def coco21(h, filename="../coco21.h5"):
 
 
 if __name__ == "__main__":
-    filename = input("filename: ")
-
     #
     # input, coco21, and model
     #
@@ -54,6 +52,8 @@ if __name__ == "__main__":
     #
     # Image Caption Generator
     #
+    filename = input("filename: ")
+    
     image = cv2.resize(cv2.imread(filename), (img_width, img_height)).transpose(2, 0, 1)
     feature = np.reshape(CNN.eval({input: np.ascontiguousarray(image, dtype="float32")}), (1, 1, num_feature))
     word = np.identity(num_word, dtype="float32")[1].reshape(1, 1, num_word)
