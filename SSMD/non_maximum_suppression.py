@@ -11,8 +11,10 @@ bboxes_dict = {"bicycle": [["bicycle", 0.4,   5, 100, 320, 280],
                        ["car", 0.5, 243,  75, 400, 126]],
                "dog":[["dog", 0.75,  22, 213, 135, 385],
                       ["dog", 0.8,  17, 161, 140, 380]]}
-fontScale = 0.3
+
 nms_threshold = 0.1
+
+fontScale = 0.3
 
 
 def intersection_over_union(box1, box2):  # [xmin, ymin, xmax, ymax]
