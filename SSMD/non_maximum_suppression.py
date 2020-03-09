@@ -14,6 +14,7 @@ bboxes_dict = {"bicycle": [["bicycle", 0.4,   5, 100, 320, 280],
 
 nms_threshold = 0.1
 
+thickness = 2
 fontScale = 0.3
 
 
@@ -43,9 +44,9 @@ def non_maximum_suppression(img, bboxes, threshold):
 
         prob = "%s %.2f" % (box1[0], box1[1])
         (x, y), base = cv2.getTextSize(prob, cv2.FONT_HERSHEY_SIMPLEX, fontScale, 1)
-        cv2.rectangle(img, (box1[2] - 1, box1[3] + y + base), (box1[2] + x, box1[3]), (0, 0, 255), cv2.FILLED)
-        cv2.putText(img, prob, (box1[2], box1[3] + y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, (255, 255, 255))
-        cv2.rectangle(img, (box1[2], box1[3]), (box1[4], box1[5]), (0, 0, 255), thickness=2)
+        cv2.rectangle(img, (box1[2] + thickness, box1[3] + y + base + thickness), (box1[2] + x, box1[3]), (0, 0, 255), cv2.FILLED)
+        cv2.putText(img, prob, (box1[2] + thickness, box1[3] + y + thickness), cv2.FONT_HERSHEY_SIMPLEX, fontScale, (255, 255, 255))
+        cv2.rectangle(img, (box1[2], box1[3]), (box1[4], box1[5]), (0, 0, 255), thickness=thickness)
     return img
 
 
