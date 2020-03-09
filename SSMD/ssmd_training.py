@@ -226,14 +226,14 @@ def ssmd416(h, layers={}, filename="../COCO/coco21.h5"):
         h_large = Convolution2D((1, 1), 3 * num_channel, activation=None, bias=True)(h_large)
         h_large = C.reshape(C.transpose(h_large, (1, 2, 0)), (3 * 7 * 7, num_channel))
 
-        h_xy = C.splice((C.sigmoid(h_large[:, :2]) + C.constant(center_offset(3, 7))) / 7,  # x-center and y-center
+        h_xy = C.splice((C.sigmoid(h_large[:, :2]) + C.constant(center_offset(3, 7))) / 7,  # x-center, y-center
                         (C.sigmoid(h_medium[:, :2]) + C.constant(center_offset(3, 13))) / 13,
                         (C.sigmoid(h_small[:, :2]) + C.constant(center_offset(1, 26))) / 26, axis=0)
-        h_wh = C.splice(C.constant(prior_anchor(3, 7, anchor_boxes[2:])) * C.softplus(h_large[:, 2:4]),  # width and height
+        h_wh = C.splice(C.constant(prior_anchor(3, 7, anchor_boxes[2:])) * C.softplus(h_large[:, 2:4]),  # width, height
                         C.constant(prior_anchor(3, 13, anchor_boxes[1:-1])) * C.softplus(h_medium[:, 2:4]),
                         C.constant(prior_anchor(1, 26, anchor_boxes[:1, :])) * C.softplus(h_small[:, 2:4]), axis=0)
-        h_conf = C.sigmoid(C.splice(h_large[:, 4], h_medium[:, 4], h_small[:, 4], axis=0))  # objectness score
-        h_prob = C.splice(h_large[:, 5:], h_medium[:, 5:], h_small[:, 5:], axis=0)  # pre-softmax
+        h_conf = C.sigmoid(C.splice(h_large[:, 4], h_medium[:, 4], h_small[:, 4], axis=0))  # objectness
+        h_prob = C.splice(h_large[:, 5:], h_medium[:, 5:], h_small[:, 5:], axis=0)
 
     return C.splice(h_xy, h_wh, h_conf, h_prob, axis=1)
 
