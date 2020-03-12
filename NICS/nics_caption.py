@@ -125,7 +125,7 @@ if __name__ == "__main__":
     print("\nAll image are encoded feature vector -> {}\n".format(features.shape))
 
     #
-    # word, target and features
+    # word, target, and features
     #
     num_samples = 0
     with open("./" + data_file + "_nics_captions.txt", "w", encoding="UTF-8") as cap_file:
