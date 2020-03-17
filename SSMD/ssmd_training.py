@@ -268,10 +268,10 @@ if __name__ == "__main__":
     errs = C.classification_error(model[:, 5:], label, axis=1)
     
     #
-    # cyclical learning rate
+    # optimizer and cyclical learning rate
     #
-    learner = C.adam(model.parameters, lr=1e-3, momentum=0.9, gradient_clipping_with_truncation=True,
-                     gradient_clipping_threshold_per_sample=sample_size)
+    learner = C.adam(model.parameters, lr=1e-3, momentum=0.9, gradient_clipping_threshold_per_sample=sample_size,
+                     gradient_clipping_with_truncation=True)
     clr = CyclicalLearningRate(learner, base_lrs=1e-5, max_lrs=1e-3, minibatch_size=sample_size, step_size=step_size)
     progress_printer = C.logging.ProgressPrinter(tag="Training")
 
