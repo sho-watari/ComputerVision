@@ -75,7 +75,7 @@ if __name__ == "__main__":
     errs = C.classification_error(model, targets)
 
     #
-    # optimizer
+    # optimizer and cyclical learning rate
     #
     learner = C.adam(model.parameters, lr=0.01, momentum=0.9, gradient_clipping_threshold_per_sample=sample_size,
                      gradient_clipping_with_truncation=True)
