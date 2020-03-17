@@ -77,8 +77,8 @@ if __name__ == "__main__":
     #
     # optimizer
     #
-    learner = C.adam(model.parameters, lr=0.01, momentum=0.9, gradient_clipping_with_truncation=True,
-                     gradient_clipping_threshold_per_sample=sample_size)
+    learner = C.adam(model.parameters, lr=0.01, momentum=0.9, gradient_clipping_threshold_per_sample=sample_size,
+                     gradient_clipping_with_truncation=True)
     clr = CyclicalLearningRate(learner, base_lrs=1e-4, max_lrs=0.01, minibatch_size=sample_size, step_size=step_size)
     progress_printer = C.logging.ProgressPrinter(tag="Training")
 
