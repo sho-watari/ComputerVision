@@ -1,6 +1,6 @@
 # NICS
 
-Computer Vision : Image Caption - Neural Image Caption System
+Image Caption - Neural Image Caption System
 
 ## Recurrent Neural Network
 
