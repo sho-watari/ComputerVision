@@ -2,7 +2,7 @@
 
 Computer Vision : Image Classification - Common Objects in Context
 
-## COCO21
+## coco21
 
 | Layer                | Filters | Size/Stride |    Input    |   Output   |
 |:--------------------:|:-------:|:-----------:|:-----------:|:----------:|
