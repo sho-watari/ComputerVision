@@ -4,7 +4,7 @@
 
 Image Classification - Common Objects in Context
 
-Convolution Neural Network - COCO21
+COCO21
 
 ## MNIST
 
