@@ -1,6 +1,6 @@
 # COCO
 
-Computer Vision : Image Classification - Common Objects in Context
+Image Classification - Common Objects in Context
 
 ## coco21
 
