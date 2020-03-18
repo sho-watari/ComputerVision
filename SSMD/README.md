@@ -1,6 +1,6 @@
 # SSMD
 
-Computer Vision : Object Detection - Single Shot Multi Detector
+Object Detection - Single Shot Multi Detector
 
 ## Results
 
