@@ -2,8 +2,6 @@
 
 Image Caption - Neural Image Caption System
 
-## Recurrent Neural Network
-
 <img src="nics.png">
 
 ## Results
