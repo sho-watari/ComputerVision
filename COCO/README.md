@@ -2,7 +2,7 @@
 
 Computer Vision : Image Classification - Common Objects in Context
 
-Convolution Nerural Network - COCO21
+COCO21
 
 | Layer                | Filters | Size/Stride |    Input    |   Output   |
 |:--------------------:|:-------:|:-----------:|:-----------:|:----------:|
