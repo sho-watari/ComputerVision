@@ -6,31 +6,31 @@ Image Classification - Common Objects in Context
 
 | Layer                | Filters | Size/Stride |    Input    |   Output   |
 |:--------------------:|:-------:|:-----------:|:-----------:|:----------:|
-| Convolution2D        |      32 |       3x3/1 |  224x224x3  | 224x224x32 |
-| Convolution2D        |      32 |       3x3/1 |  224x224x32 | 224x224x32 |
-|  MaxPooling2D        |         |       3x3/2 |  224x224x32 | 112x112x32 |
-| Convolution2D        |      64 |       3x3/1 |  112x112x32 | 112x112x64 |
-| Convolution2D        |      64 |       3x3/1 |  112x112x64 | 112x112x64 |
-|  MaxPooling2D        |         |       3x3/2 |  112x112x64 |  56x56x64  |
-| Convolution2D        |     128 |       3x3/1 |   56x56x64  |  56x56x128 |
-| Convolution2D        |      64 |       1x1/1 |   56x56x128 |  56x56x64  |
-| Convolution2D        |     128 |       3x3/1 |   56x56x64  |  56x56x128 |
-|  MaxPooling2D        |         |       3x3/2 |   56x56x128 |  28x28x128 |
-| Convolution2D        |     256 |       3x3/1 |   28x28x128 |  28x28x256 |
-| Convolution2D        |     128 |       1x1/1 |   28x28x256 |  28x28x128 |
-| Convolution2D        |     256 |       3x3/1 |   28x28x128 |  28x28x256 |
-|  MaxPooling2D        |         |       3x3/2 |   28x28x256 |  14x14x256 |
-| Convolution2D        |     512 |       3x3/1 |   14x14x256 |  14x14x512 |
-| Convolution2D        |     256 |       1x1/1 |   14x14x512 |  14x14x256 |
-| Convolution2D        |     512 |       3x3/1 |   14x14x256 |  14x14x512 |
-| Convolution2D        |     256 |       1x1/1 |   14x14x512 |  14x14x256 |
-| Convolution2D        |     512 |       3x3/1 |   14x14x256 |  14x14x512 |
-|  MaxPooling2D        |         |       3x3/2 |   14x14x512 |   7x7x512  |
-| Convolution2D        |    1024 |       3x3/1 |    7x7x512  |   7x7x1024 |
-| Convolution2D        |     512 |       1x1/1 |    7x7x1024 |   7x7x512  |
-| Convolution2D        |    1024 |       3x3/1 |    7x7x512  |   7x7x1024 |
-| Convolution2D        |     512 |       1x1/1 |    7x7x1024 |   7x7x512  |
-| Convolution2D        |    1024 |       3x3/1 |    7x7x512  |   7x7x1024 |
-| Convolution2D        |      80 |       1x1/1 |    7x7x1024 |   7x7x80   |
-| GlobalAveragePooling |         |      global |    7x7x80   |       80   |
+| Convolution2D        |      32 |       3x3/1 |  3x224x224  | 32x224x224 |
+| Convolution2D        |      32 |       3x3/1 |  32x224x224 | 32x224x224 |
+|  MaxPooling2D        |         |       3x3/2 |  32x224x224 | 32x112x112 |
+| Convolution2D        |      64 |       3x3/1 |  32x112x112 | 64x112x112 |
+| Convolution2D        |      64 |       3x3/1 |  64x112x112 | 64x112x112 |
+|  MaxPooling2D        |         |       3x3/2 |  64x112x112 |  64x56x56  |
+| Convolution2D        |     128 |       3x3/1 |   64x56x56  |  128x56x56 |
+| Convolution2D        |      64 |       1x1/1 |   128x56x56 |  64x56x56  |
+| Convolution2D        |     128 |       3x3/1 |   64x56x56  |  128x56x56 |
+|  MaxPooling2D        |         |       3x3/2 |   128x56x56 |  128x28x28 |
+| Convolution2D        |     256 |       3x3/1 |   128x28x28 |  256x28x28 |
+| Convolution2D        |     128 |       1x1/1 |   256x28x28 |  128x28x28 |
+| Convolution2D        |     256 |       3x3/1 |   128x28x28 |  256x28x28 |
+|  MaxPooling2D        |         |       3x3/2 |   256x28x28 |  256x14x14 |
+| Convolution2D        |     512 |       3x3/1 |   256x14x14 |  512x14x14 |
+| Convolution2D        |     256 |       1x1/1 |   512x14x14 |  256x14x14 |
+| Convolution2D        |     512 |       3x3/1 |   256x14x14 |  512x14x14 |
+| Convolution2D        |     256 |       1x1/1 |   512x14x14 |  256x14x14 |
+| Convolution2D        |     512 |       3x3/1 |   256x14x14 |  512x14x14 |
+|  MaxPooling2D        |         |       3x3/2 |   512x14x14 |   512x7x7  |
+| Convolution2D        |    1024 |       3x3/1 |    512x7x7  |   1024x7x7 |
+| Convolution2D        |     512 |       1x1/1 |    1024x7x7 |   512x7x7  |
+| Convolution2D        |    1024 |       3x3/1 |    512x7x7  |   1024x7x7 |
+| Convolution2D        |     512 |       1x1/1 |    1024x7x7 |   512x7x7  |
+| Convolution2D        |    1024 |       3x3/1 |    512x7x7  |   1024x7x7 |
+| Convolution2D        |      80 |       1x1/1 |    1024x7x7 |   80x7x7   |
+| GlobalAveragePooling |         |      global |    80x7x7   |       80   |
 | Softmax              |         |             |        80   |       80   |
