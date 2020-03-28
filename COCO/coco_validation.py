@@ -12,7 +12,7 @@ num_samples = 89299
 
 def create_reader(map_file, mean_file, is_train):
     transforms = []
-    if is_random:
+    if is_train:
         transforms += [xforms.crop(crop_type="randomside", side_ratio=0.875)]
         transforms += [xforms.color(brightness_radius=0.2, contrast_radius=0.2, saturation_radius=0.2)]
     transforms += [xforms.scale(width=img_width, height=img_height, channels=img_channel, interpolations="linear"),
