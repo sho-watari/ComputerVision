@@ -83,7 +83,7 @@ if __name__ == "__main__":
             box = [(bbox[0] + bbox[2] / 2) / width, (bbox[1] + bbox[3] / 2) / height, bbox[2] / width, bbox[3] / height]
             box_file.write("{}\t|bbox {}\t|label {}:1\n".format(num_samples, " ".join(["%e" % b for b in box]), bbox[4]))
 
-            anchor_boxes[num_bboxes, :] = box[2:]
+            bounding_boxes[num_bboxes, :] = box[2:]
             num_bboxes += 1
 
         num_samples += 1
