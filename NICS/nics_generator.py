@@ -44,7 +44,7 @@ if __name__ == "__main__":
     # input, coco21, and model
     #
     x = C.input_variable(shape=(img_channel, img_height, img_width), dtype="float32")
-    CNN = coco21(x / 255.0)
+    cnn = coco21(x / 255.0)
     model = C.load_model("./nics.model")
 
     #
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     filename = input("filename: ")
     
     image = cv2.resize(cv2.imread(filename), (img_width, img_height)).transpose(2, 0, 1)
-    feature = np.reshape(CNN.eval({x: np.ascontiguousarray(image, dtype="float32")}), (1, 1, num_feature))
+    feature = np.reshape(cnn.eval({x: np.ascontiguousarray(image, dtype="float32")}), (1, 1, num_feature))
     word = np.identity(num_word, dtype="float32")[1].reshape(1, 1, num_word)
 
     for _ in range(MAX):
