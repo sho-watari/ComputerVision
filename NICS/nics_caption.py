@@ -128,7 +128,7 @@ if __name__ == "__main__":
     # word, target, and features
     #
     num_samples = 0
-    with open("./" + data_file + "_nics_captions.txt", "w", encoding="UTF-8") as cap_file:
+    with open("./" + data_file + "_nics_captions.txt", "w", encoding="utf-8") as cap_file:
         for i, word_list in enumerate(captions_dict.values()):
             for words in word_list:
                 words = [word if word in word2id else UNK for word in words]
