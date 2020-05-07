@@ -280,7 +280,7 @@ if __name__ == "__main__":
     C.logging.log_number_of_parameters(model)
 
     #
-    # training model
+    # training
     #
     plot_data = {"epoch": [], "giou_loss": [], "conf_loss": [], "prob_loss": []}
     for epoch in range(epoch_size):
