@@ -87,7 +87,7 @@ if __name__ == "__main__":
     C.logging.log_number_of_parameters(model)
 
     #
-    # train model
+    # training
     #
     logging = {"epoch": [], "loss": [], "error": []}
     for epoch in range(epoch_size):
