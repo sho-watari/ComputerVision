@@ -7,6 +7,7 @@ img_height = 224
 img_width = 224
 num_classes = 80
 
+minibatch_size = 64
 num_samples = 89299
 
 
@@ -42,7 +43,9 @@ if __name__ == "__main__":
     top1 = C.classification_error(model, label)
     top3 = C.classification_error(model, label, topN=3)
 
-    minibatch_size = 64
+    #
+    # validation
+    #
     sample_count = 0
     top1_error = 0
     top3_error = 0
