@@ -1,10 +1,10 @@
 import cntk as C
 import os
+import pandas as pd
 import pickle
 
 from cntk.layers import Dense, Embedding, LayerNormalization, LSTM, Recurrence, RecurrenceFrom
 from cntkx.learner import CyclicalLearingRate
-from pandas import DataFrame
 
 num_feature = 1024
 num_word = 12212
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     model.save("./nics.model")
     print("Saved model.")
 
-    df = DataFrame(logging)
+    df = pd.DataFrame(logging)
     df.to_csv("./nics.csv", index=False)
     print("Saved logging.")
     
