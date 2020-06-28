@@ -1,10 +1,10 @@
 import cntk as C
 import cntk.io.transforms as xforms
 import os
+import pandas as pd
 
 from cntk.layers import BatchNormalization, Convolution2D, GlobalAveragePooling, MaxPooling
 from cntkx.learners import CyclicalLearningRate
-from pandas import DataFrame
 
 img_channel = 3
 img_height = 224
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     model.save("./coco21.model")
     print("Saved model.")
 
-    df = DataFrame(logging)
+    df = pd.DataFrame(logging)
     df.to_csv("./coco21.csv", index=False)
     print("Saved logging.")
     
