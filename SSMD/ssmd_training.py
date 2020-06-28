@@ -3,10 +3,10 @@ import cntk.io.transforms as xforms
 import h5py
 import numpy as np
 import os
+import pandas as pd
 
 from cntk.layers import BatchNormalization, Convolution2D
 from cntkx.learners import CyclicalLearningRate
-from pandas import DataFrame
 
 img_channel = 3
 img_height = 416
@@ -321,7 +321,7 @@ if __name__ == "__main__":
     model.save("./ssmd.model")
     print("Saved model.")
 
-    df = DataFrame(plot_data)
+    df = pd.DataFrame(plot_data)
     df.to_csv("./ssmd.csv", index=False)
     print("Saved logging.")
     
