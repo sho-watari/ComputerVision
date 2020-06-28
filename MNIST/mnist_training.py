@@ -1,8 +1,8 @@
 import cntk as C
+import pandas as pd
 
 from cntk.layers import BatchNormalization, Convolution2D, GlobalAveragePooling, MaxPooling
 from cntkx.learners import CyclicalLearningRate
-from pandas import DataFrame
 
 from mnist_loader import load_mnist
 
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     model.save("./mnist.model")
     print("Saved model.")
 
-    df = DataFrame(logging)
+    df = pd.DataFrame(logging)
     df.to_csv("./mnist.csv", index=False)
     print("Saved logging.")
     
