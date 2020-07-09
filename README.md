@@ -4,7 +4,6 @@
 
 Image Classification - Common Objects in Context
 
-<p aling="center">
 | Layer                | Filters | Size/Stride |    Input    |   Output   |
 |:--------------------:|:-------:|:-----------:|:-----------:|:----------:|
 | Convolution2D        |      32 |       3x3/1 |  3x224x224  | 32x224x224 |
@@ -35,7 +34,6 @@ Image Classification - Common Objects in Context
 | Convolution2D        |      80 |       1x1/1 |    1024x7x7 |   80x7x7   |
 | GlobalAveragePooling |         |      global |    80x7x7   |       80   |
 | Softmax              |         |             |        80   |       80   |
-</p>
 
 ## MNIST
 
