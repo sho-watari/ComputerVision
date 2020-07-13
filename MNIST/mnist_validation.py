@@ -9,12 +9,12 @@ num_samples = 10000
 
 if __name__ == "__main__":
     #
-    # load Fashion-MNIST dataset
+    # load dataset
     #
     train_image, train_label, test_image, test_label = load_mnist()
 
     #
-    # load Fashion-MNIST model
+    # model and label
     #
     model = C.load_model("./mnist.model")
     label = C.input_variable(shape=num_classes, dtype="float32")
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     errs = C.classification_error(model, label)
 
     #
-    # Test Accuracy
+    # test accuracy
     #
     minibatch_size = 512
     sample_count = 0
