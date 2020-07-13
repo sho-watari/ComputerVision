@@ -56,7 +56,7 @@ if __name__ == "__main__":
     img = cv2.imread("./bicycle-car-dog.jpg")
 
     #
-    # Nun Maximum Suppression
+    # non maximum suppression
     #
     for bboxes_list in bboxes_dict.values():
         bboxes_list.sort(reverse=True)
