@@ -117,6 +117,29 @@ class SingleShotMultiDetector:
 
         return assign_image, assign_bbox, assign_conf, assign_label, lambda_bbox, lambda_conf, lambda_prob
 
+    
+def convolution(weights, name=''):
+    W = C.Constant(value=weights, name='W')
+
+    @C.BlockFunction('Convolution2D', name)
+    def conv2d(x):
+        return C.convolution(W, x, strides=[1, 1], auto_padding=[False, True, True])
+
+    return conv2d
+
+
+def batch_normalization(scale, bias, mean, variance, spatial=True, name=''):
+    scale = C.Constant(value=scale, name='scale')
+    bias = C.Constant(value=bias, name='scale')
+    mu = C.Constant(value=mean, name='aggreagate_mean')
+    sigma = C.Constant(value=variance, name='aggregate_variance')
+
+    @C.BlockFunction('BatchNormalization', name)
+    def batch_norm(x):
+        return C.batch_normalization(x, scale, bias, mu, sigma, spatial=spatial, running_count=C.constant(5000))
+
+    return batch_norm
+
 
 def create_reader(map_file, box_file, train):
     transforms = [xforms.color(brightness_radius=0.2, contrast_radius=0.2, saturation_radius=0.2),
@@ -198,16 +221,16 @@ def intersection_over_union(outputs, targets):  # [x-center, y-center, width, he
 
 
 def ssmd416(h, layers={}, filename="../COCO/coco21.h5"):
-    with h5py.File(filename, "r") as f:
+        with h5py.File("../COCO/coco21.h5", "r") as f:
         for l in range(20):
-            h = C.convolution(f["params/conv%d/weights" % (l + 1)][()], h, strides=1, auto_padding=[False, True, True])
+            h = convolution(f["params/conv%d/weights" % (l + 1)][()])(h)
             h = C.elu(h)
-            h = C.batch_normalization(h, f["params/bn%d/scale" % (l + 1)][()], f["params/bn%d/bias" % (l + 1)][()],
-                                      f["params/bn%d/mean" % (l + 1)][()], f["params/bn%d/variance" % (l + 1)][()],
-                                      spatial=True, running_count=C.constant(0))
+            h = batch_normalization(f["params/bn%d/scale" % (l + 1)][()], f["params/bn%d/bias" % (l + 1)][()],
+                                    f["params/bn%d/mean" % (l + 1)][()], f["params/bn%d/variance" % (l + 1)][()])(h)
             if l in [1, 3, 6, 9, 14]:
                 layers["layer%d" % (l + 1)] = h
-                h = C.pooling(h, C.MAX_POOLING, pooling_window_shape=(3, 3), strides=(2, 2), auto_padding=[False, True, True])
+                h = C.pooling(h, C.MAX_POOLING, pooling_window_shape=(3, 3), strides=(2, 2),
+                              auto_padding=[False, True, True])
 
     with C.layers.default_options(activation=C.elu, init=C.he_normal(), pad=True, strides=1, bias=False,
                                   map_rank=1, use_cntk_engine=True):
