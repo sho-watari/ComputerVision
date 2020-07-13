@@ -38,7 +38,7 @@ if __name__ == "__main__":
     input_map = {model.arguments[0]: valid_reader.streams.images, label: valid_reader.streams.labels}
 
     #
-    # Top-3, Top-1 Accuracy
+    # top-3, top-1 accuracy
     #
     top1 = C.classification_error(model, label)
     top3 = C.classification_error(model, label, topN=3)
