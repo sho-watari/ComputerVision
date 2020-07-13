@@ -42,7 +42,7 @@ def dimension_clustering(bounding_boxes, num_anchors):
 
 
 if __name__ == "__main__":
-    """ Bounding Box and Category Label from COCO dataset """
+    """ bounding box and category label from COCO dataset """
     instance_file = "%s/annotations/instances_%s.json" % (dir_file, data_file)
 
     with open(instance_file, "rb") as file:
@@ -63,7 +63,7 @@ if __name__ == "__main__":
         bbox_dict.setdefault(image_id, []).append(bbox)
 
     #
-    # mapfile and bounding-box file
+    # image, bounding-box and label file
     #
     bounding_boxes = np.zeros((len(annotations), 2), dtype="float32")
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     print("\nNumber of samples", num_samples)
 
     #
-    # Dimension Clustering
+    # dimension clustering
     #
     dimension_clustering(bounding_boxes, num_anchors)
     
