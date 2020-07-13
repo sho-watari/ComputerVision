@@ -58,7 +58,7 @@ def convnet(h):
 
 if __name__ == "__main__":
     #
-    # load Fashion-MNIST
+    # load dataset
     #
     train_image, train_label, test_image, test_label = load_mnist()
 
@@ -115,6 +115,9 @@ if __name__ == "__main__":
 
         trainer.summarize_training_progress()
 
+    #
+    # save model and logging
+    #
     model.save("./mnist.model")
     print("Saved model.")
 
