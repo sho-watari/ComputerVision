@@ -58,7 +58,7 @@ def convnet(h):
 
 if __name__ == "__main__":
     #
-    # load Fashion-MNIST dataset
+    # load Fashion-MNIST
     #
     train_image, train_label, test_image, test_label = load_mnist()
 
