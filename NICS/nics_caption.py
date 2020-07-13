@@ -47,12 +47,12 @@ def create_reader(map_file):
         labels=C.io.StreamDef(field="label", shape=1))), randomize=False)
 
 
-def convolution(weights, name=''):
+def convolution(weights, pad=True, stride=1, name=''):
     W = C.Constant(value=weights, name='W')
 
     @C.BlockFunction('Convolution2D', name)
     def conv2d(x):
-        return C.convolution(W, x, strides=[1, 1], auto_padding=[False, True, True])
+        return C.convolution(W, x, strides=[stride, stride], auto_padding=[False, pad, pad])
 
     return conv2d
 
@@ -78,7 +78,8 @@ def coco21(h, filename="../COCO/coco21.h5"):
             h = batch_normalization(f["params/bn%d/scale" % (l + 1)][()], f["params/bn%d/bias" % (l + 1)][()],
                                     f["params/bn%d/mean" % (l + 1)][()], f["params/bn%d/variance" % (l + 1)][()])(h)
             if l in [1, 3, 6, 9, 14]:
-                h = C.pooling(h, C.MAX_POOLING, pooling_window_shape=(3, 3), strides=(2, 2), auto_padding=[False, True, True])
+                h = C.layers.MaxPooling((3, 3), strides=2, pad=True)(h)
+
         h = C.layers.GlobalAveragePooling()(h)
     return h
 
@@ -117,11 +118,11 @@ if __name__ == "__main__":
 
     word2id, id2word = create_word2id(captions_list)
 
-    with open("word2id.pkl", "wb") as f:
+    with open("./word2id.pkl", "wb") as f:
         pickle.dump(word2id, f)
-    print("Saved word2id.pkl\n")
+    print("\nSaved word2id.pkl")
 
-    with open("id2word.pkl", "wb") as f:
+    with open("./id2word.pkl", "wb") as f:
         pickle.dump(id2word, f)
     print("Saved id2word.pkl\n")
 
