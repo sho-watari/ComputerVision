@@ -118,12 +118,12 @@ class SingleShotMultiDetector:
         return assign_image, assign_bbox, assign_conf, assign_label, lambda_bbox, lambda_conf, lambda_prob
 
     
-def convolution(weights, name=''):
+def convolution(weights, pad=True, stride=1, name=''):
     W = C.Constant(value=weights, name='W')
 
     @C.BlockFunction('Convolution2D', name)
     def conv2d(x):
-        return C.convolution(W, x, strides=[1, 1], auto_padding=[False, True, True])
+        return C.convolution(W, x, strides=[stride, stride], auto_padding=[False, pad, pad])
 
     return conv2d
 
@@ -229,8 +229,7 @@ def ssmd416(h, layers={}, filename="../COCO/coco21.h5"):
                                     f["params/bn%d/mean" % (l + 1)][()], f["params/bn%d/variance" % (l + 1)][()])(h)
             if l in [1, 3, 6, 9, 14]:
                 layers["layer%d" % (l + 1)] = h
-                h = C.pooling(h, C.MAX_POOLING, pooling_window_shape=(3, 3), strides=(2, 2),
-                              auto_padding=[False, True, True])
+                h = C.layers.MaxPooling((3, 3), strides=2, pad=True)(h)
 
     with C.layers.default_options(activation=C.elu, init=C.he_normal(), pad=True, strides=1, bias=False,
                                   map_rank=1, use_cntk_engine=True):
@@ -327,7 +326,7 @@ if __name__ == "__main__":
             epoch_prob += prob_loss.eval({input: batch_image, label: batch_label, lambda_prob: batch_prob_lambda}).sum()
 
         #
-        # giou_loss, conf_loss, and prob_loss
+        # giou, conf, and prob logging
         #
         plot_data["epoch"].append(epoch + 1)
         plot_data["giou_loss"].append(epoch_giou / num_samples)
@@ -339,7 +338,7 @@ if __name__ == "__main__":
         train_reader.sample_count = 0
 
     #
-    # Save model and logging
+    # save model and logging
     #
     model.save("./ssmd.model")
     print("Saved model.")
