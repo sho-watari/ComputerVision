@@ -21,7 +21,7 @@ BOS = "<BOS>"
 EOS = "<EOS>"
 MAX = 35
 
-with open("id2word.pkl", "rb") as f:
+with open("./id2word.pkl", "rb") as f:
     id2word = pickle.load(f)
 
 
