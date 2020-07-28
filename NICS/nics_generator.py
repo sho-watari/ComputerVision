@@ -37,7 +37,7 @@ def convolution(weights, pad=True, stride=1, name=''):
 
 def batch_normalization(scale, bias, mean, variance, spatial=True, name=''):
     scale = C.Constant(value=scale, name='scale')
-    bias = C.Constant(value=bias, name='scale')
+    bias = C.Constant(value=bias, name='bias')
     mu = C.Constant(value=mean, name='aggreagate_mean')
     sigma = C.Constant(value=variance, name='aggregate_variance')
 
