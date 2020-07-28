@@ -112,8 +112,8 @@ if __name__ == "__main__":
             break
 
         end = time.perf_counter()
-        fps = (end - start) * 1000
-        print("%.1f" % fps)
+        
+        print("FPS %.1f" % (1.0 / (end - start)))
 
     cap.release()
     cv2.destroyAllWindows()
