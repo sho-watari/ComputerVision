@@ -262,6 +262,12 @@ def ssmd416(h, layers={}, filename="../COCO/coco21.h5"):
 
 if __name__ == "__main__":
     #
+    # minibatch reader
+    #
+    train_reader = SingleShotMultiDetector("./train2014_ssmd_images.txt", "./train2014_ssmd_bboxes.txt", is_train=True)
+
+    
+    #
     # input, bounding-box, confidence, label, and model
     #
     input = C.input_variable(shape=(img_channel, img_height, img_width), dtype="float32")
@@ -273,11 +279,6 @@ if __name__ == "__main__":
     lambda_prob = C.input_variable(shape=(num_bboxes, 1), dtype="float32")
 
     model = ssmd416(input / 255.0)
-
-    #
-    # minibatch reader
-    #
-    train_reader = SingleShotMultiDetector("./train2014_ssmd_images.txt", "./train2014_ssmd_bboxes.txt", True)
 
     #
     # loss function
