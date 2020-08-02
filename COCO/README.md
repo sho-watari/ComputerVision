@@ -2,8 +2,6 @@
 
 Image Classification - Common Objects in Context
 
-<img src="coco21_category.png">
-
 ## coco21
 
 | Layer                | Filters | Size/Stride |    Input    |   Output   |
