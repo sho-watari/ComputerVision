@@ -4,7 +4,7 @@
 
 Image Classification - Common Objects in Context
 
-coco21
+**coco21**
 
 ## MNIST
 
