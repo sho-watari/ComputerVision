@@ -6,4 +6,4 @@ Semantic Segmentation - Real-Time Semantic Segmentation
 
 ## Results
 
-<img src="rtss.fig">
+<img src="rtss.gif">
