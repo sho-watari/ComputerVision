@@ -44,7 +44,7 @@ if __name__ == "__main__":
             for j in range(img_width):
                 label[idx[i, j], i, j] = 1
 
-        np.save(dir_file + "%s/labels/" % data_file + ann_file.split(".")[0].rsplit("\\")[1], label)
+        np.save(dir_file + "%s/labels/" % data_file + ann_file.rsplit(".", 1)[0].rsplit("\\")[1], label)
 
     #
     # image and label file
