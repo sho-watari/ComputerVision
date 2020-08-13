@@ -36,19 +36,19 @@ class RealTimeSemanticSegmentation:
     def next_minibatch(self, minibatch_size):
         self.minibatch_count = minibatch_size
 
-        image_data = np.zeros((minibatch_size, img_channel, img_height, img_width), dtype="float32")
-        label_data = np.zeros((minibatch_size, num_classes, img_height, img_width), dtype="float32")
+        batch_image = np.zeros((minibatch_size, img_channel, img_height, img_width), dtype="float32")
+        batch_label = np.zeros((minibatch_size, num_classes, img_height, img_width), dtype="float32")
 
         batch_file = self.map_list[self.sample_count: self.sample_count + minibatch_size]
         for i, line in enumerate(batch_file):
             img_file, ann_file = line[:-1].split("\t")
 
-            image_data[i] = np.ascontiguousarray(cv2.imread(img_file).transpose(2, 0, 1), dtype="float32")
-            label_data[i] = np.load(ann_file)
+            batch_image[i] = np.ascontiguousarray(cv2.imread(img_file).transpose(2, 0, 1), dtype="float32")
+            batch_label[i] = np.load(ann_file)
 
         self.sample_count += minibatch_size
 
-        return image_data, label_data
+        return batch_image, batch_label
 
     def randomize(self):
         random.shuffle(self.map_list)
