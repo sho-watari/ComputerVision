@@ -6,6 +6,10 @@ Image Classification - Common Objects in Context
 
 **coco21**
 
+## HPE
+
+Pose Estimation - Human Pose Estimation
+
 ## MNIST
 
 Image Classification - Fashion-MNIST
