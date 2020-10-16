@@ -15,7 +15,7 @@ Pose Estimation - Human Pose Estimation
 
 ## MNIST
 
-Image Classification - Fashion-MNIST
+MNIST - Fashion-MNIST
 
 ```
 Test Accuracy 93.70%
