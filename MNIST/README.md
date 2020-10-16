@@ -1,6 +1,6 @@
 # MNIST
 
-Image Classification - Fashion-MNIST
+MNIST - Fashion-MNIST
 
 <p align="center">
   <img src="fashion.png">
