@@ -195,3 +195,6 @@ if __name__ == "__main__":
 
         print("FPS %.1f" % (1.0 / (end - start)))
         
+    cap.release()
+    cv2.destroyAllWindows()
+
