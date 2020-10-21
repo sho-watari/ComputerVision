@@ -67,7 +67,7 @@ def postprocessing(frame, out):
         draw(frame, class_ids[i], confidences[i], left, top, left + width, top + height)
 
 
-def yolov3_camera():
+if __name__ == "__main__":
     #
     # yolo
     #
@@ -101,8 +101,4 @@ def yolov3_camera():
 
     cap.release()
     cv2.destroyAllWindows()
-
-
-if __name__ == "__main__":
-    yolov3_camera()
     
