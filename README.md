@@ -46,3 +46,7 @@ Object Detection - Single Shot Multi Detector
 ## YOLO
 
 YOLO - You Only Look Once
+
+<p align="center">
+  <img src="YOLO/yolov3.gif">
+</p>
