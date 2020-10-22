@@ -12,7 +12,7 @@ classes = ["person", "bicycle", "car", "motorcycle", "airplane", "bus", "train",
            "cell phone", "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors",
            "teddy bear", "hair drier", "toothbrush"]
 
-conf_threshold = 0.5
+conf_threshold = 0.7
 nms_threshold = 0.15
 img_width = 416
 img_height = 416
@@ -69,7 +69,7 @@ def postprocessing(frame, out):
 
 if __name__ == "__main__":
     #
-    # yolo
+    # yolo v3
     #
     net = cv2.dnn.readNetFromDarknet("./yolov3.cfg", "./yolov3.weights")
     net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
