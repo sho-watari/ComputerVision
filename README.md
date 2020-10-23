@@ -9,9 +9,9 @@ Top-1 Accuracy 72.96%
 Top-3 Accuracy 87.81%
 ```
 
-## HPE
+## HRPE
 
-Pose Estimation - Human Pose Estimation
+Pose Estimation - Higher Resolution Pose Estimation
 
 ## MNIST
 
