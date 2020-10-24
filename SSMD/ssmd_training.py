@@ -235,17 +235,17 @@ def ssmd416(h, layers={}, filename="../COCO/coco21.h5"):
                                   map_rank=1, use_cntk_engine=True):
         h_small = Convolution2D((3, 3), 512)(layers["layer15"])  # 512 x 26 x26
         h_small = BatchNormalization()(h_small)
-        h_small = Convolution2D((1, 1), num_channel, activation=None, bias=True)(h_small)
+        h_small = Convolution2D((1, 1), num_channel, activation=None, bias=True, init=C.glorot_uniform())(h_small)
         h_small = C.reshape(C.transpose(h_small, (1, 2, 0)), (1 * 26 * 26, num_channel))
 
         h_medium = Convolution2D((3, 3), 1024)(h)  # 1024 x 13 x 13
         h_medium = BatchNormalization()(h_medium)
-        h_medium = Convolution2D((1, 1), 3 * num_channel, activation=None, bias=True)(h_medium)
+        h_medium = Convolution2D((1, 1), 3 * num_channel, activation=None, bias=True, init=C.glorot_uniform())(h_medium)
         h_medium = C.reshape(C.transpose(h_medium, (1, 2, 0)), (3 * 13 * 13, num_channel))
 
         h_large = Convolution2D((3, 3), 512, strides=2)(h)  # 512 x 7 x 7
         h_large = BatchNormalization()(h_large)
-        h_large = Convolution2D((1, 1), 3 * num_channel, activation=None, bias=True)(h_large)
+        h_large = Convolution2D((1, 1), 3 * num_channel, activation=None, bias=True, init=C.glorot_uniform())(h_large)
         h_large = C.reshape(C.transpose(h_large, (1, 2, 0)), (3 * 7 * 7, num_channel))
 
         h_xy = C.splice((C.sigmoid(h_large[:, :2]) + C.constant(center_offset(3, 7))) / 7,  # x-center, y-center
