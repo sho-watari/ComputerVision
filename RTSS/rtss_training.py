@@ -280,7 +280,7 @@ def rtss320x480(h):
         h = Cx.mish(SeparableConvolution2D(384, 384, 3)(h))
         h = Upsample(h.shape)(h)
         h = Upsample(h.shape)(h)
-        h = Convolution2D((1, 1), num_classes, activation=None, bias=True)(h)
+        h = Convolution2D((1, 1), num_classes, activation=None, bias=True, init=C.glorot_uniform())(h)
 
         return h
 
