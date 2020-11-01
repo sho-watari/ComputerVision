@@ -27,7 +27,6 @@ class RealTimeSemanticSegmentation:
     def __init__(self, map_file, is_train):
         self.sample_count = 0
         self.minibatch_count = 0
-        self.num_classes = num_classes
         with open(map_file) as f:
             self.map_list = f.readlines()
         if is_train:
