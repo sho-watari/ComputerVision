@@ -68,7 +68,7 @@ def rtss_meanIOU():
         count[n] = np.identity(num_classes)[list(np.nonzero(batch_label[0].sum(axis=(1, 2)))[0])].sum(axis=0)
 
     mean_iou = iou.sum(axis=0) / (count.sum(axis=0) + 1e-5)
-    print("meanIOU %.1f" % (mean_iou.sum() / np.count_nonzero(mean_iou) * 100))
+    print("mIOU %.1f" % (mean_iou.sum() / np.count_nonzero(mean_iou) * 100))
 
 
 if __name__ == "__main__":
