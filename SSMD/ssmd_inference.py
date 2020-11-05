@@ -23,7 +23,7 @@ num_bboxes = 1330
 conf_threshold = 0.6
 nms_threshold = 0.1
 
-thichness = 2
+thickness = 2
 fontScale = 1.0
 color = {c: [random.randint(0, 255) for _ in range(3)] for c in category}
 
@@ -53,11 +53,11 @@ def non_maximum_suppression(img, bboxes, threshold):
 
         prob = "%s %.2f" % (box1[0], box1[1])
         (x, y), base = cv2.getTextSize(prob, cv2.FONT_HERSHEY_SIMPLEX, fontScale, 1)
-        cv2.rectangle(img, (box1[2] + thichness, box1[3] + y + base + thichness), (box1[2] + x, box1[3]),
+        cv2.rectangle(img, (box1[2] + thickness, box1[3] + y + base + thickness), (box1[2] + x, box1[3]),
                       color[box1[0]], cv2.FILLED)
-        cv2.putText(img, prob, (box1[2] + thichness, box1[3] + y + thichness), cv2.FONT_HERSHEY_SIMPLEX, fontScale,
+        cv2.putText(img, prob, (box1[2] + thickness, box1[3] + y + thickness), cv2.FONT_HERSHEY_SIMPLEX, fontScale,
                     (255, 255, 255))
-        cv2.rectangle(img, (box1[2], box1[3]), (box1[4], box1[5]), color[box1[0]], thickness=thichness)
+        cv2.rectangle(img, (box1[2], box1[3]), (box1[4], box1[5]), color[box1[0]], thickness=thickness)
 
     return img
 
