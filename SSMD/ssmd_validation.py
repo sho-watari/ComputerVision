@@ -211,7 +211,7 @@ def ssmd_meanAP(iou_score):
     for key, value in meanAP.items():
         meanAP_score[key] = np.array(value).mean()
 
-    print("mAP@%.1f %.1f" % (iou_score, np.array(list(meanAP_score.values())).mean() * 100))
+    print("mAP@%d %.1f" % (iou_score * 100, np.array(list(meanAP_score.values())).mean() * 100))
 
 
 if __name__ == "__main__":
