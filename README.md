@@ -13,6 +13,11 @@ Top-3 Accuracy 87.81%
 
 Pose Estimation - Higher Resolution Pose Estimation
 
+<p align="center">
+  <img src="HRPE/hrpe.gif">
+</p>
+
+
 ## MNIST
 
 MNIST - Fashion-MNIST
