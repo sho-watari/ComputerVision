@@ -87,8 +87,7 @@ if __name__ == "__main__":
             for i in range(num_keypoint):
                 value = heatmap[..., i].flatten()
                 value.sort()
-                value = value[::-1]
-                values = value[:N]
+                values = value[::-1][:N]
                 for n in range(N):
                     if values[n] > conf_threshold:
                         k, h, w = np.where([heatmap[:, :, i] == values[n]])
