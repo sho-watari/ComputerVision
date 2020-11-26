@@ -11,7 +11,7 @@ Top-3 Accuracy 87.81%
 
 ## HRPE
 
-Pose Estimation - Higher Resolution Pose Estimation
+Pose Estimation - High Resolution Pose Estimation
 
 <p align="center">
   <img src="HRPE/hrpe.gif">
