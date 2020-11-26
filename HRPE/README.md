@@ -1,6 +1,6 @@
 # HRPE
 
-Pose Estimation - Higher Resolution Pose Estimation
+Pose Estimation - High Resolution Pose Estimation
 
 <p align="center">
   <img src="hrpe.png">
